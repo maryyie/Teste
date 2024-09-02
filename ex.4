@@ -1,0 +1,26 @@
+using System;
+
+class Program {
+    static void Main() {
+        // Faturamento mensal por estado
+        double faturamentoSP = 67836.43;
+        double faturamentoRJ = 36678.66;
+        double faturamentoMG = 29229.88;
+        double faturamentoES = 27165.48;
+        double faturamentoOutros = 19849.53;
+
+        // Valor total de faturamento
+        double totalFaturamento = faturamentoSP + faturamentoRJ + faturamentoMG + faturamentoES + faturamentoOutros;
+
+        Console.WriteLine($"Percentual de representação de SP: {CalcularPercentual(faturamentoSP, totalFaturamento):F2}%");
+        Console.WriteLine($"Percentual de representação de RJ: {CalcularPercentual(faturamentoRJ, totalFaturamento):F2}%");
+        Console.WriteLine($"Percentual de representação de MG: {CalcularPercentual(faturamentoMG, totalFaturamento):F2}%");
+        Console.WriteLine($"Percentual de representação de ES: {CalcularPercentual(faturamentoES, totalFaturamento):F2}%");
+        Console.WriteLine($"Percentual de representação de Outros: {CalcularPercentual(faturamentoOutros, totalFaturamento):F2}%");
+    }
+
+    static double CalcularPercentual(double valorEstado, double total) {
+
+        return (valorEstado / total) * 100;
+    }
+}
