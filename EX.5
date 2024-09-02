@@ -1,0 +1,41 @@
+using System;
+
+class Program {
+    static void Main() {
+        // Solicita ao usuário para inserir uma string ou usa uma string previamente definida
+        Console.Write("Digite uma string para inverter (ou deixe vazio para usar a string padrão): ");
+        string input = Console.ReadLine();
+
+        // Se a entrada estiver vazia, usa uma string padrão
+        if (string.IsNullOrWhiteSpace(input)) {
+            input = "Exemplo de String";
+        }
+
+        // Inverte a string
+        string inversa = InverterString(input);
+
+        // Exibe o resultado
+        Console.WriteLine($"String original: {input}");
+        Console.WriteLine($"String invertida: {inversa}");
+    }
+
+    static string InverterString(string str) {
+        char[] caracteres = str.ToCharArray();
+
+        // Inicializa o índice do início e do fim do array
+        int inicio = 0;
+        int fim = caracteres.Length - 1;
+
+
+        while (inicio < fim) {
+            // Troca os caracteres nas posições inicio e fim
+            char temp = caracteres[inicio];
+            caracteres[inicio] = caracteres[fim];
+            caracteres[fim] = temp;
+
+            inicio++;
+            fim--;
+        }
+        return new string(caracteres);
+    }
+}
