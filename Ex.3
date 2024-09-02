@@ -1,0 +1,35 @@
+using System;
+using System.Linq;
+
+class Program {
+    static void Main() {
+        // Exemplo de vetor com valores de faturamento diário
+        double[] faturamentoDiario = { 1500.0, 2300.0, 2100.0, 1700.0, 2600.0, 1800.0, 2000.0, 1900.0, 2200.0, 2400.0, 2500.0, 2800.0 };
+
+        CalcularFaturamento(faturamentoDiario);
+    }
+
+    static void CalcularFaturamento(double[] faturamento) {
+        if (faturamento.Length == 0) {
+            Console.WriteLine("O vetor de faturamento está vazio.");
+            return;
+        }
+
+        // Calcula o menor valor de faturamento
+        double menorFaturamento = faturamento.Min();
+
+        // Calcula o maior valor de faturamento
+        double maiorFaturamento = faturamento.Max();
+
+        // Calcula a média mensal de faturamento
+        double mediaMensal = faturamento.Average();
+
+        // Conta o número de dias com faturamento superior à média mensal
+        int diasAcimaMedia = faturamento.Count(d => d > mediaMensal);
+
+        // Exibe os resultados
+        Console.WriteLine($"O menor valor de faturamento ocorrido em um dia do mês é: {menorFaturamento:C}");
+        Console.WriteLine($"O maior valor de faturamento ocorrido em um dia do mês é: {maiorFaturamento:C}");
+        Console.WriteLine($"Número de dias no mês em que o valor de faturamento diário foi superior à média mensal: {diasAcimaMedia}");
+    }
+}
